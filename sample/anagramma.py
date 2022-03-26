@@ -6,16 +6,16 @@
 def normalize(s):
     return s.lower().replace(" ","")
     
-#halmazzal
 def isAnagramma(s1,s2):
-    return set(normalize(s1))==set(normalize(s2))
+    li = list(normalize(s1))
+    for c in normalize(s2):
+        if c in li:
+            li.remove(c)
+    
+    if len(li) == 0:
+        return True
+    return False        
 
-#for ciklussal
-#def isAnagramma(s1,s2):
-#    for c in normalize(s1):
-#        if c not in normalize(s2):
-#            return False
-#    return True
 
 def main():
     s1 = "Clint Eastwood"
